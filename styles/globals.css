@@ -24,3 +24,28 @@ a {
     background: black;
   }
 }
+
+.head-wrapper {
+  padding: 10px 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.head-home {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: stroke-width 0.2s ease-in;
+}
+
+.head-home:hover {
+  stroke-width: 1.5;
+  transition: stroke-width 0.2s ease-out;
+}
+div.heelo {
+  text-align: center;
+}
+
+.head-home-span {
+  font-weight: lighter;
+  vertical-align: bottom;
+}
