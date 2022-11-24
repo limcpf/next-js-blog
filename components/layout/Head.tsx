@@ -1,14 +1,20 @@
-import Home from "assets/home-alt.svg";
+import HeadMenuLink from "./HeadMenuLnk";
+import {useRouter} from "next/router";
 
 export default function Head() {
+    const asPath = useRouter().asPath;
+    const includesPostInAsPath = asPath.split("/").includes('post');
+
+    const isActivePostBtn = (asPath !== '/post' && includesPostInAsPath);
 
     return <div className="grid head-wrapper">
         <div>
-            <Home stroke="#FFFFFF" className="head-home"/>
+            <span>Heelo</span>
         </div>
-        <div className="heelo">
-            <span className="head-home-span">heelo</span>
+        <div dir="rtl" className="head-menu">
+            <HeadMenuLink path="/" text="Home" isActive={asPath === `/`}/>
+            <span style={isActivePostBtn ? { fontWeight: 'normal' } : {}}>Post</span>
+            <HeadMenuLink path="/post" text="List" isActive={asPath === '/post'} />
         </div>
-        <div dir="rtl">asd2</div>
     </div>;
 }

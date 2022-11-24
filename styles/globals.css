@@ -1,7 +1,9 @@
 html,
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
+  background: #eaeaea;
+  max-width: calc(100% - var(--actions-width, 30px));
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -15,37 +17,64 @@ a {
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3 {
+  color: #000;
+}
+
+p,
+dl {
+  color: #363636;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+div.head-wrapper {
+  padding: 10px 20px;
+  border-bottom: 1px solid #000000;
+  vertical-align: bottom;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.heelo {
+  text-align: center;
+}
+
+.head-menu span{
+  font-weight: lighter;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   body {
     color: white;
-    background: black;
+    background: #202b38;
   }
-}
 
-.head-wrapper {
-  padding: 10px 20px;
-  border-bottom: 1px solid #eaeaea;
-}
+  h1,
+  h2,
+  h3 {
+    color: #fff;
+  }
 
-.head-home {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  transition: stroke-width 0.2s ease-in;
-}
+  p,
+  dl {
+    color: #dbdbdb;
+  }
 
-.head-home:hover {
-  stroke-width: 1.5;
-  transition: stroke-width 0.2s ease-out;
-}
-div.heelo {
-  text-align: center;
-}
+  a {
+    color: #41adff;
+    text-decoration: none;
+  }
 
-.head-home-span {
-  font-weight: lighter;
-  vertical-align: bottom;
+  .head-wrapper {
+    border-bottom: 1px solid #eaeaea;
+  }
 }
