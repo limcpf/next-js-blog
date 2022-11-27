@@ -3,7 +3,7 @@ body {
   padding: 0;
   margin: 0 auto;
   background: #eaeaea;
-  max-width: calc(100% - var(--actions-width, 30px));
+  max-width: calc(100% - var(--actions-width, 100px));
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -39,6 +39,7 @@ div.head-wrapper {
   vertical-align: bottom;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 div.heelo {
@@ -47,6 +48,24 @@ div.heelo {
 
 .head-menu span{
   font-weight: lighter;
+}
+
+.post-block {
+  cursor: pointer;
+}
+.post-list {
+  margin: 0 auto;
+  max-width: 80%;
+}
+.post-block-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.post-block-title > span.post-block-time {
+  padding-left: 10px;
+  font-weight: lighter;
+  font-size: 0.7rem;
+  color: darkgray;
 }
 
 @media (prefers-color-scheme: dark) {

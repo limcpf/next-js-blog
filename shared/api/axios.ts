@@ -29,16 +29,15 @@ export const getPong = ():Promise<string> => blog.get(`/health`).then(({data}) =
 // })
 
 export const getPosts = (page: number, size: number, sort?:string[]):Promise<iPost[]> => new Promise((res, rej) => {
-    console.log(page, size, sort, rej);
     const posts: iPost[] = [];
     for(let i = 1; i <= 10; i++) {
         const post: iPost = {
             id: i,
             title: faker.lorem.lines(1),
             contents: faker.lorem.paragraph(10),
-            show: Math.random() > 0.3 ? 0 : 1,
-            modifiedDate: faker.date.recent().toISOString(),
-            createdDate: faker.date.recent().toISOString()
+            published: Math.random() > 0.3 ? 0 : 1,
+            updatedAt: faker.date.recent().toISOString(),
+            createdAt: faker.date.recent().toISOString()
         }
         posts.push(post);
     }

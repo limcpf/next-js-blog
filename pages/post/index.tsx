@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { iPost } from 'shared/interface/post/post.interface';
+import PostListBlock from "../../components/post/PostListBlock";
 
 export default function Posts() {
     const [posts, setPosts] = useState<iPost[]>();
@@ -17,12 +18,10 @@ export default function Posts() {
         })
     }, [page]);
   return (
-    <div className="grid">
-        <div> 
+    <div className="grid post-list">
             {
-                posts ? posts.map((post) => (<h1 key={post.id}>{post.title}</h1>)) : <h1> none </h1>
+                posts ? posts.map((post) => (<PostListBlock post={post} />)) : <h1> none </h1>
             }
-        </div>
     </div>
     
   )

@@ -2,9 +2,9 @@ export interface iPost {
     id: number
     title: string
     contents: string
-    show: number
-    modifiedDate: string
-    createdDate: string
+    published: number
+    createdAt: string
+    updatedAt: string
 }
 
 export interface PostPageObject {
