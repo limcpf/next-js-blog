@@ -36,6 +36,7 @@ export const getPong = ():Promise<string> => blog.get(`/admin`).then(({data}) =>
 export const getPosts = (page?: number, size?: number, sort?:string[]):Promise<iPost[]> => new Promise((res, rej) => {
     console.log(page, size, sort);
     console.log(rej);
+    const posts: iPost[] = [];
     for(let i = 1; i <= 10; i++) {
         const post: iPost = {
             id: i,
