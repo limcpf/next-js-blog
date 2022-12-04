@@ -20,7 +20,7 @@ export default function Posts() {
   return (
     <div className="grid post-list">
             {
-                posts ? posts.map((post) => (<PostListBlock post={post} />)) : <h1> none </h1>
+                posts ? posts.map((post) => (<PostListBlock key={post.id} post={post} />)) : <h1> none </h1>
             }
     </div>
     
