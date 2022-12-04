@@ -1,17 +1,22 @@
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import { iPost } from 'shared/interface/post/post.interface';
 
 import { faker } from '@faker-js/faker';
+import {User} from "next-auth";
+import {AdapterUser} from "next-auth/adapters";
 
 const blog = axios.create(
     {
-        baseURL : "http://localhost:8080",
+        baseURL : "http://localhost:3000",
+        withCredentials: true
     }
 );
 
 
 /** 서버 접속 테스트 */
-export const getPong = ():Promise<string> => blog.get(`/health`).then(({data}) => data);
+export const getPong = ():Promise<string> => blog.get(`/admin`).then(({data}) => {
+    return data;
+});
 /** 단일 포스트 가져오기 */
 // export const getPost = (id: string | string[]):Promise<iPost> => new Promise((res, rej) => {
 //     res();
@@ -28,8 +33,9 @@ export const getPong = ():Promise<string> => blog.get(`/health`).then(({data}) =
 //     }
 // })
 
-export const getPosts = (page: number, size: number, sort?:string[]):Promise<iPost[]> => new Promise((res, rej) => {
-    const posts: iPost[] = [];
+export const getPosts = (page?: number, size?: number, sort?:string[]):Promise<iPost[]> => new Promise((res, rej) => {
+    console.log(page, size, sort);
+    console.log(rej);
     for(let i = 1; i <= 10; i++) {
         const post: iPost = {
             id: i,
@@ -41,6 +47,16 @@ export const getPosts = (page: number, size: number, sort?:string[]):Promise<iPo
         }
         posts.push(post);
     }
-    res(JSON.stringify(posts));
-    
+    // @ts-ignore
+    res(JSON.parse(posts));
 });
+
+interface getAuthData {
+    accessToken: string;
+    isSuccessLogin: string;
+}
+export const getAuth = (user: User | AdapterUser) => {
+    return blog
+            .post('/auth/login', user)
+            .then(({data} : AxiosResponse<getAuthData>) => data);
+};
