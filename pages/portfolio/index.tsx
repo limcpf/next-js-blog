@@ -1,3 +1,3 @@
 export default function Portfolio() {
-    return <div>Test</div>
+	return <div>Test</div>;
 }

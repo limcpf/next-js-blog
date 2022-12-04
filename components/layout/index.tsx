@@ -1,14 +1,14 @@
-import Head from './Head'
+import Header from "./Head";
 
 type layoutProps = {
-    children: JSX.Element
-}
+	children: JSX.Element;
+};
 
 export default function Layout({ children }: layoutProps) {
-    return (
-        <>
-            <Head />
-            <main>{children}</main>
-        </>
-    )
+	return (
+		<>
+			<Header />
+			<main>{children}</main>
+		</>
+	);
 }
