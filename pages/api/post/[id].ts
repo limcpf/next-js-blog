@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getPost } from "shared/api/axios";
 import { Override } from "openid-client";
 
-type postResponse = object | iPost[][];
+type postResponse = object | iPost[];
 
 export type GetPostRequest = Override<
 	NextApiRequest,
