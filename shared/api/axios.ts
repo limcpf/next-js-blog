@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { iPost } from "shared/interface/post/post.interface";
 
-import { faker } from "@faker-js/faker";
 import { User } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
 
@@ -16,44 +15,22 @@ export const getPong = (): Promise<string> =>
 		return data;
 	});
 /** 단일 포스트 가져오기 */
-// export const getPost = (id: string | string[]):Promise<iPost> => new Promise((res, rej) => {
-//     res();
-// });
-// export const getPost = (id:string | string[]):Promise<iPost> => blog.get(`/public/post/${id}`).then(({data}) => {
-//     if(data?.contents) {
-//         data.contents = makrdown.render(data.contents.replaceAll("\\x3C", "<"));
-//     }
-//     return data;
-// });
-// /** 포스트 목록 가져오기 */
-// export const getPosts = (page: number, size: number, sort?:string[]):Promise<iPost[]> => blog.get(`public/post`, { params : {
-//         page, size, sort
-//     }
-// })
+export const getPost = (id:string | string[]):Promise<iPost> => blog.get(`/post/${id}`).then(({data}) => {
+    // if(data?.contents) {
+    //     data.contents = makrdown.render(data.contents.replaceAll("\\x3C", "<"));
+    // }
+    return data;
+});
 
-export const getPosts = (
-	page?: number,
-	size?: number,
-	sort?: string[],
-): Promise<iPost[]> =>
-	new Promise((res, rej) => {
-		console.log(page, size, sort);
-		console.log(rej);
-		const posts: iPost[] = [];
-		for (let i = 1; i <= 10; i++) {
-			const post: iPost = {
-				id: i,
-				title: faker.lorem.lines(1),
-				contents: faker.lorem.paragraph(10),
-				published: Math.random() > 0.3 ? 0 : 1,
-				updatedAt: faker.date.recent().toISOString(),
-				createdAt: faker.date.recent().toISOString(),
-			};
-			posts.push(post);
+/** 포스트 목록 가져오기 */
+export const getPosts = async (page: number, size: number, sort?:string[]) => {
+	const { data } = await blog.get(`/post`, { params : {
+			page, size, sort
 		}
-		// @ts-ignore
-		res(JSON.parse(posts));
 	});
+
+	return data;
+}
 
 interface getAuthData {
 	accessToken: string;
