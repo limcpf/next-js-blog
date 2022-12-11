@@ -1,4 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 
 export default function Component() {
 	const { data: session } = useSession();
@@ -6,7 +7,10 @@ export default function Component() {
 	if (session?.user) {
 		return (
 			<>
-				Signed in as {session.user.email} <br />
+				<Link href="/admin/post">post 목록보기</Link>
+				<br />
+				<Link href="/admin/upload">post 올리기</Link>
+				<br />
 				<button onClick={() => signOut()}>Sign out</button>
 			</>
 		);

@@ -5,8 +5,8 @@ import { getAuth } from "../../../shared/api/axios";
 export const authOptions: NextAuthOptions = {
 	providers: [
 		Github({
-			clientId: "c40f88ae166bc53f8019",
-			clientSecret: "b06c160ae35511a1a10a62fcf2738989fce090d1",
+			clientId: process.env.CLIENT_ID ?? "",
+			clientSecret: process.env.CLIENT_SECRET ?? "",
 		}),
 	],
 	callbacks: {
