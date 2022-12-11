@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { iPost } from "shared/interface/post/post.interface";
 import PostListBlock from "../../components/post/PostListBlock";
 import PostPagination from "../../components/post/PostPagination";
-import {RootState} from "../../shared/redux/store";
-import {useSelector} from "react-redux";
+import { RootState } from "../../shared/redux/store";
+import { useSelector } from "react-redux";
 
 export default function Posts() {
 	const [posts, setPosts] = useState<iPost[]>([]);
@@ -14,7 +14,7 @@ export default function Posts() {
 	useEffect(() => {
 		fetch(`/api/post?page=${page}`)
 			.then((res) => res.json())
-			.then(({data, cnt}) => {
+			.then(({ data, cnt }) => {
 				setPosts(data);
 				setCnt(cnt % 10 === 0 ? cnt / 10 : cnt / 10 + 1);
 			})
@@ -34,7 +34,7 @@ export default function Posts() {
 					<h1> loading... </h1>
 				)}
 			</div>
-			{ posts.length > 0 && <PostPagination cnt={cnt} page={page} /> }
+			{posts.length > 0 && <PostPagination cnt={cnt} page={page} />}
 		</>
 	);
 }

@@ -6,8 +6,7 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "format": "rome format . --write",
-    "lint" : "rome check . --apply-suggested"
+    "format": "rome format . --write && rome check . --apply-suggested"
   },
   "dependencies": {
     "@picocss/pico": "^1.5.6",

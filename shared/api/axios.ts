@@ -15,22 +15,27 @@ export const getPong = (): Promise<string> =>
 		return data;
 	});
 /** 단일 포스트 가져오기 */
-export const getPost = (id:string | string[]):Promise<iPost> => blog.get(`/post/${id}`).then(({data}) => {
-    // if(data?.contents) {
-    //     data.contents = makrdown.render(data.contents.replaceAll("\\x3C", "<"));
-    // }
-    return data;
-});
+export const getPost = async (id: number): Promise<iPost> => {
+	const { data } = await blog.get(`/post/${id}`);
+	// if(data?.contents) {
+	//     data.contents = makrdown.render(data.contents.replaceAll("\\x3C", "<"));
+	// }
+
+	return data;
+};
 
 /** 포스트 목록 가져오기 */
-export const getPosts = async (page: number, size: number, sort?:string[]) => {
-	const { data } = await blog.get(`/post`, { params : {
-			page, size, sort
-		}
+export const getPosts = async (page: number, size: number, sort?: string[]) => {
+	const { data } = await blog.get("/post", {
+		params: {
+			page,
+			size,
+			sort,
+		},
 	});
 
 	return data;
-}
+};
 
 interface getAuthData {
 	accessToken: string;

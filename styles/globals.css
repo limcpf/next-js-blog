@@ -85,7 +85,46 @@ div.heelo {
 .page-pagination-btn:hover {
   background-color: rgba(0,0,0,0.1);
 }
+.post-wrapper {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.post-wrapper > .post-header {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid darkgray;
+}
+.post-wrapper > .post-header > .post-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.post-wrapper > .post-header > .post-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  font-size: .8rem;
+  color: darkgray;
+}
+.post-wrapper > .post-body {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid darkgray;
+}
+.post-wrapper > .post-body > .post-contents {
+  max-width: 80ch;
 
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 3em 0 1em;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
