@@ -18,11 +18,11 @@ export default async function handler(
 	req: GetPostsRequest,
 	res: NextApiResponse<postResponse>,
 ) {
-		try {
-			const posts = await getPosts(req.query.page, 10, '');
-			res.status(200).send(posts);
-		} catch (e) {
-			const u = e as Error;
-			res.status(500).json({ message: u.message });
-		}
+	try {
+		const posts = await getPosts(req.query.page, 10, "");
+		res.status(200).send(posts);
+	} catch (e) {
+		const u = e as Error;
+		res.status(500).json({ message: u.message });
+	}
 }

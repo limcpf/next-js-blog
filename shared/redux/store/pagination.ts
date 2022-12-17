@@ -12,7 +12,7 @@ export const pageSlice = createSlice({
 		},
 		setRecentPost: (state, action) => {
 			state.recentPost = action.payload;
-		}
+		},
 	},
 });
 

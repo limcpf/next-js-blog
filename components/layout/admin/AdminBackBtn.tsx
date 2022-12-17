@@ -1,10 +1,12 @@
 import React from "react";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 export default function AdminBackBtn() {
-    const router = useRouter();
+	const router = useRouter();
 
-    return <div className="admin-back-btn" onClick={() => router.push('/admin')}>
-        <span>뒤로가기</span>
-    </div>
+	return (
+		<div className="admin-back-btn" onClick={() => router.push("/admin")}>
+			<span>뒤로가기</span>
+		</div>
+	);
 }

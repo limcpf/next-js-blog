@@ -16,7 +16,9 @@ export default function PostPagination({ cnt, page }: PostPaginationProps) {
 		Array(5)
 			.fill(0)
 			.map((v, i) => {
-				if (left + i <= cnt) { return left + i; }
+				if (left + i <= cnt) {
+					return left + i;
+				}
 			})
 			.filter((i) => i);
 
@@ -45,7 +47,9 @@ export default function PostPagination({ cnt, page }: PostPaginationProps) {
 	return (
 		<div className="post-pagination-wrapper">
 			{left > 5 && spreadBtn(true)}
-			{list?.map((num) => <PostPaginationBtn key={num} now={page} num={num} />)}
+			{list?.map((num) => (
+				<PostPaginationBtn key={num} now={page} num={num} />
+			))}
 			{cnt > left + 5 && spreadBtn(false)}
 		</div>
 	);

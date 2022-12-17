@@ -1,6 +1,6 @@
 import { iPost } from "../../shared/interface/post/post.interface";
 import { useRouter } from "next/router";
-import {convertDateToKorDate} from "../../shared/post/postUtil";
+import { convertDateToKorDate } from "../../shared/post/postUtil";
 
 type PostListBlockProps = {
 	post: iPost;

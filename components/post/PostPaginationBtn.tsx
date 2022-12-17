@@ -16,9 +16,9 @@ export default function PostPaginationBtn({
 	return (
 		<div
 			onClick={chgPage}
-			className={
-				`page-pagination-btn ${(now === num ? "page-pagination-btn-active" : "")}`
-			}
+			className={`page-pagination-btn ${
+				now === num ? "page-pagination-btn-active" : ""
+			}`}
 		>
 			{num}
 		</div>
