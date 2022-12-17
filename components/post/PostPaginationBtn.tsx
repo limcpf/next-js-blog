@@ -11,7 +11,6 @@ export default function PostPaginationBtn({
 	now,
 }: PostPaginationBtnProps) {
 	const dispatch = useDispatch();
-
 	const chgPage = () => dispatch(setPage(num));
 
 	return (

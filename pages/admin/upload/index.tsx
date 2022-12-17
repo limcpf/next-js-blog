@@ -1,5 +1,6 @@
 import {useSession} from "next-auth/react";
 import {useRouter} from "next/router";
+import AdminBackBtn from "../../../components/layout/admin/AdminBackBtn";
 
 export default function PostUpload() {
     const { data: session } = useSession();
@@ -11,7 +12,7 @@ export default function PostUpload() {
         // @ts-ignore
         const contents:string = document.getElementById('contents').value;
 
-        fetch(`/api/post`, {
+        fetch(`/api/admin/post`, {
             method: 'POST',
             body: JSON.stringify({
                 "title": title,
@@ -32,7 +33,9 @@ export default function PostUpload() {
 
     if(!session?.user) return <></>;
     return (
-        <div className="create-post-wrapper">
+        <>
+            <AdminBackBtn />
+            <div className="create-post-wrapper">
             <div className="create-post-bar">
                 <div className="create-post-bar-title">
                     제목
@@ -53,5 +56,6 @@ export default function PostUpload() {
                 <button onClick={submit}>등록</button>
             </div>
         </div>
+    </>
     )
 }

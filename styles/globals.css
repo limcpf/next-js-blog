@@ -121,6 +121,11 @@ div.heelo {
   max-width: 80ch;
 }
 
+.post-wrapper > .post-body > .post-contents img {
+  width:100%;
+  object-fit:contain;
+}
+
 .create-post-wrapper {
   display: flex;
   flex-direction: column;
@@ -157,10 +162,56 @@ div.heelo {
 .create-post-btn button{
   padding: 5px 10px;
 }
-
-h1,h2,h3,h4,h5,h6 {
-  margin: 3em 0 1em;
+.admin-back-btn {
+  display: flex;
+  justify-content: flex-end;
 }
+.admin-back-btn > span {
+  cursor: pointer;
+}
+.admin-back-btn > span:hover {
+  text-decoration-line: underline;
+}
+
+.tooltip-link{
+  position: relative;
+}
+.tooltip-link[data-tooltip]:not([data-tooltip=""])::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  font-size: 0.8rem;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 7px 5px;
+  border-radius: 10px;
+  width: 20ch;
+  text-align: center;
+  left: -230%;
+  top: 120%;
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+.tooltip-link[data-tooltip]:not([data-tooltip=""])::after {
+  content: '';
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: rgba(0,0,0,0.5);
+  width: 0;
+  height: 0;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 0);
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+.tooltip-link:hover[data-tooltip]:not([data-tooltip=""])::before
+, .tooltip-link:hover[data-tooltip]:not([data-tooltip=""])::after {
+  opacity: 1;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

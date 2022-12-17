@@ -1,6 +1,6 @@
 import { iPost } from "../../shared/interface/post/post.interface";
 import { useRouter } from "next/router";
-import {useSession} from "next-auth/react";
+import {convertDateToKorDate} from "../../shared/post/postUtil";
 
 type PostListBlockProps = {
 	post: iPost;
@@ -8,19 +8,15 @@ type PostListBlockProps = {
 
 export default function PostListBlock({ post }: PostListBlockProps) {
 	const router = useRouter();
-	const { data: session } = useSession();
 
-	const { id, title, createdAt, published } = post;
-	const pub = published ? "게시됨" : "게시안됨";
-	const time = new Intl.DateTimeFormat("ko", { dateStyle: "long" }).format(
-		new Date(createdAt),
-	);
+	const { id, title, createdAt } = post;
+	const time = convertDateToKorDate(createdAt);
 
 	return (
 		<div onClick={() => router.push(`/post/${id}`)} className="post-block">
 			<div className="post-block-title">
 				{title}
-				<span className="post-block-time">{time} {session?.user ? pub : ""}</span>
+				<span className="post-block-time">{time}</span>
 			</div>
 			<hr />
 		</div>

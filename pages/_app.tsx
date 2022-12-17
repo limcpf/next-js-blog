@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
 import store from "../shared/redux/store";
+import Head from "next/head";
 
 export default function App({
 	Component,
@@ -12,6 +13,9 @@ export default function App({
 	return (
 		<Provider store={store}>
 			<SessionProvider session={session}>
+				<Head>
+					<title>Heelo Blog</title>
+				</Head>
 				<Layout>
 					<Component {...pageProps} />
 				</Layout>

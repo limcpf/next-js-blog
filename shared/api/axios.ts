@@ -5,7 +5,7 @@ import { User } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
 
 const blog = axios.create({
-	baseURL: "http://localhost:3000",
+	baseURL: process.env.API_SERVER,
 	withCredentials: true,
 });
 
@@ -25,10 +25,6 @@ export const getPong = (): Promise<string> => {
 /** 단일 포스트 가져오기 */
 export const getPost = async (id: number): Promise<iPost> => {
 	const { data } = await blog.get(`/post/${id}`);
-	// if(data?.contents) {
-	//     data.contents = makrdown.render(data.contents.replaceAll("\\x3C", "<"));
-	// }
-
 	return data;
 };
 

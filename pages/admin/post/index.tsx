@@ -5,6 +5,7 @@ import PostPagination from "../../../components/post/PostPagination";
 import { RootState } from "../../../shared/redux/store";
 import { useSelector } from "react-redux";
 import PostListBlockInAdmin from "../../../components/post/PostListBlockInAdmin";
+import AdminBackBtn from "../../../components/layout/admin/AdminBackBtn";
 
 export default function Posts() {
     const { data: session } = useSession();
@@ -14,7 +15,7 @@ export default function Posts() {
     const page = useSelector((state: RootState) => state.pagination.page);
 
     useEffect(() => {
-        fetch(`/api/post?page=${page}`)
+        fetch(`/api/admin/post?page=${page}`)
             .then((res) => res.json())
             .then(({ data, cnt }) => {
                 setPosts(data);
@@ -30,6 +31,7 @@ export default function Posts() {
     if(!session?.user) return <></>;
     return (
         <>
+            <AdminBackBtn />
             <div className="grid post-list">
                 {posts ? (
                     posts.map((post) => <PostListBlockInAdmin key={post.id} post={post} />)

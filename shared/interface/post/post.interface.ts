@@ -6,7 +6,3 @@ export interface iPost {
 	createdAt: string;
 	updatedAt: string;
 }
-
-export interface PostPageObject {
-	post: iPost;
-}
