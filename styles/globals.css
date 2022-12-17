@@ -119,7 +119,43 @@ div.heelo {
 }
 .post-wrapper > .post-body > .post-contents {
   max-width: 80ch;
+}
 
+.create-post-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.create-post-bar {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5em;
+
+}
+.create-post-bar-title {
+  flex-grow: 1;
+  height: 100%;
+}
+.create-post-input {
+  flex-grow: 11;
+  height: 100%;
+}
+.create-post-input input{
+  height: 100%;
+  width: 100%;
+}
+.create-post-input textarea {
+  width: 100%;
+}
+.create-post-box {
+  display: flex;
+  width: 100%;
+}
+.create-post-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+.create-post-btn button{
+  padding: 5px 10px;
 }
 
 h1,h2,h3,h4,h5,h6 {

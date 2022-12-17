@@ -40,6 +40,10 @@ export const authOptions: NextAuthOptions = {
 			return token;
 		},
 	},
+	session: {
+		strategy: "jwt",
+		maxAge: 60 * 60,
+	}
 };
 
 export default NextAuth(authOptions);
