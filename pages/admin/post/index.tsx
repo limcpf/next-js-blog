@@ -28,7 +28,9 @@ export default function Posts() {
 			});
 	}, [page]);
 
-	if (!session?.user) { return <></>; }
+	if (!session?.user) {
+		return <></>;
+	}
 	return (
 		<>
 			<AdminBackBtn />

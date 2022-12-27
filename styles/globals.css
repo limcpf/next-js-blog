@@ -214,30 +214,30 @@ div.heelo {
 
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;
+    /*color-scheme: dark;*/
   }
   body {
-    color: white;
-    background: #202b38;
+    /*color: white;*/
+    /*background: #202b38;*/
   }
 
   h1,
   h2,
   h3 {
-    color: #fff;
+    /*color: #fff;*/
   }
 
   p,
   dl {
-    color: #dbdbdb;
+    /*color: #dbdbdb;*/
   }
 
   a {
-    color: #41adff;
-    text-decoration: none;
+    /*color: #41adff;*/
+    /*text-decoration: none;*/
   }
 
   .head-wrapper {
-    border-bottom: 1px solid #eaeaea;
+    /*border-bottom: 1px solid #eaeaea;*/
   }
 }
