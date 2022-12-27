@@ -212,6 +212,17 @@ div.heelo {
   opacity: 1;
 }
 
+@media screen and (max-width: 800px) {
+  html,
+  body {
+    max-width: calc(100% - var(--actions-width, 30px));
+  }
+
+  p {
+    line-height: 1.5em;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     /*color-scheme: dark;*/
