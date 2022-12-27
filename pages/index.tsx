@@ -2,7 +2,8 @@ export default function Home() {
 	return (
 		<>
 			<h1>Heelo README! Ver.221227</h1>
-			<h2>##블로그 소개</h2>
+			<h2>블로그 소개</h2>
+			<hr />
 			<p>
 				개발 공부 목적으로 만든 블로그입니다.
 				<s>(프론트에 재능이 없어 디자인이 깔끔하지 않은 점 양해 바랍니다.)</s>
@@ -29,10 +30,12 @@ export default function Home() {
 			<hr />
 			<p>
 				백, 프론트 모두 TypeScript를 사용하였습니다. 업으로는 Java를 사용하고
-				있습니다. 대세를 따르지 않고 사용하고 싶은 스택을 사용했습니다.
+				있습니다. 대세를 따르지 않고 사용하고 싶은 스택을 사용했습니다.{" "}
 				<s>하지만 프론트는 Next.js 입니다.</s>
 			</p>
-			<h3>백엔드[https://github.com/limcpf/fastify-ts-blog]</h3>
+			<h3>
+				<a href="https://github.com/limcpf/fastify-ts-blog">백엔드</a>
+			</h3>
 			<hr />
 			<ul>
 				<li>
@@ -61,7 +64,9 @@ export default function Home() {
 					</ul>
 				</li>
 			</ul>
-			<h3>프론트엔드[https://github.com/limcpf/next-js-blog]</h3>
+			<h3>
+				<a href="https://github.com/limcpf/next-js-blog">프론트엔드</a>
+			</h3>
 			<hr />
 			<ul>
 				<li>Next.js 13을 사용중에 있습니다.</li>
