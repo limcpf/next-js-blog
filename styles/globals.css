@@ -1,11 +1,14 @@
 html,
 body {
-  padding: 0;
+  padding: 0 0 50px 0;
   margin: 0 auto;
   background: #eaeaea;
   max-width: calc(100% - var(--actions-width, 100px));
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+body {
+  max-width: 1280px;
 }
 
 a {
@@ -112,18 +115,37 @@ div.heelo {
 }
 .post-wrapper > .post-body {
   display: flex;
-  justify-content: center;
   padding-bottom: 1em;
   margin-bottom: 1em;
   border-bottom: 1px solid darkgray;
 }
 .post-wrapper > .post-body > .post-contents {
-  max-width: 80ch;
+  width: 100%;
 }
 
 .post-wrapper > .post-body > .post-contents img {
   width:100%;
   object-fit:contain;
+}
+
+div.post-contents > pre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.post-contents > pre > code {
+  width: 90%;
+  margin-top:0;
+  display: block;
+  padding: 5px 10px 10px 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 0 0 10px 10px;
 }
 
 .create-post-wrapper {
@@ -212,6 +234,15 @@ div.heelo {
   opacity: 1;
 }
 
+.code-top {
+  background-color: #333333;
+  border: 1px solid black;
+  padding: 3px 10px;
+  color:white;
+  font-size: 0.8em;
+  width: 90%;
+  border-radius: 10px 10px 0 0;
+}
 @media screen and (max-width: 800px) {
   html,
   body {
@@ -220,6 +251,13 @@ div.heelo {
 
   p {
     line-height: 1.5em;
+  }
+
+  div.post-contents > pre > code {
+    width: 100%;
+  }
+  .code-top {
+    width: 100%;
   }
 }
 
